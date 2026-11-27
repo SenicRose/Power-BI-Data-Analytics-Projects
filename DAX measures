@@ -1,0 +1,15 @@
+Total Sales
+Total Sales = SUM(superstore[Sales])
+
+
+Total Profit
+Total Profit = SUM(superstore[Profit])
+
+Profit Margin
+Profit Margin =
+DIVIDE(
+    [Total Profit],
+    [Total Sales],
+    0
+)
+
