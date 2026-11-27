@@ -1,0 +1,36 @@
+--Total sales, profit and quantity
+SELECT
+    SUM(Sales) AS Total_Sales,
+    SUM(Profit) AS Total_Profit,
+    SUM(Quantity) AS Total_Quantity
+FROM superstore;
+
+--Sales and profit by category
+SELECT
+    Category,
+    SUM(Sales) AS Total_Sales,
+    SUM(Profit) AS Total_Profit
+FROM superstore
+GROUP BY Category
+ORDER BY Total_Sales DESC;
+
+--Identify loss-making sub-categories
+SELECT
+    `Sub-Category`,
+    SUM(Sales) AS Total_Sales,
+    SUM(Profit) AS Total_Profit
+FROM superstore
+GROUP BY `Sub-Category`
+HAVING SUM(Profit) < 0
+ORDER BY Total_Profit ASC;
+
+--Analyze regional profit
+SELECT
+    Region,
+    SUM(Sales) AS Total_Sales,
+    SUM(Profit) AS Total_Profit
+FROM superstore
+GROUP BY Region
+ORDER BY Total_Profit DESC;
+
+
